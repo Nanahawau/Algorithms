@@ -1,5 +1,7 @@
 package com.nana.trees;
 
+import java.util.Stack;
+
 public class Trees {
     public static void main(String[] args) {
 
@@ -9,10 +11,29 @@ public class Trees {
         Node d = new Node("d");
 
         a.setLeft(b); 
-        a.right = c;
-        c.left = d;
+        a.setRight(c);
+        c.setLeft(d);  
         
     }
+
+    static void DFS (Node root) {
+        Stack<Node> s = new Stack<Node>();
+        s.push(root);
+
+        while(!s.isEmpty()) {
+         Node current = s.pop();
+         System.out.println(current.getValue());
+
+         if(current.getLeft() != null) {
+            s.push(current.getLeft());
+         }
+
+         if(current.getRight() != null)
+         s.push(current.getRight());
+         
+        }
+    }
+
 }
 
 
