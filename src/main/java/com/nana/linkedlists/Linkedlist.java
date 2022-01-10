@@ -1,5 +1,7 @@
 package com.nana.linkedlists;
 
+import java.util.Stack;
+
 public class Linkedlist {
 
     class Node {
@@ -20,6 +22,7 @@ public class Linkedlist {
 
     /**
      * Append iteratively
+     * 
      * @param n
      */
     public void append(int n) {
@@ -40,6 +43,7 @@ public class Linkedlist {
 
     /**
      * Append recursively
+     * 
      * @param n
      */
     public void append_(int n) {
@@ -63,6 +67,7 @@ public class Linkedlist {
 
     /**
      * Reverse linked list
+     * 
      * @param head
      * @return
      */
@@ -159,6 +164,89 @@ public class Linkedlist {
 
         System.out.println(link.head);
 
+    }
+
+    /**
+     * Given a resulting list (head),
+     * determine the original order of the elements.
+     * Will reverse only even segments.
+     */
+    static Node reverse3(Node head) {
+
+        // **** sanity check(s) ****
+        if (head == null || head.next == null)
+            return head;
+
+        // **** initialization ****
+        Node revHead = null;
+        Node revTail = null;
+        Stack<Node> stack = new Stack<>();
+
+        // **** traverse the linked list - O(n) ****
+        for (Node p = head; p != null; p = p.next) {
+
+            // ???? ????
+            // System.out.println("<<< p: " + p.data);
+
+            // **** even node ****
+            if (p.val % 2 == 0) {
+                stack.push(p);
+            }
+
+            // **** odd node ****
+            else {
+
+                // **** pop all nodes from the stack ****
+                while (!stack.isEmpty()) {
+
+                    // **** pop next node ****
+                    Node node = stack.pop();
+
+                    // **** reset next reference ****
+                    node.next = null;
+
+                    // **** set new head ****
+                    if (revHead == null)
+                        revHead = node;
+                    else
+                        revTail.next = node;
+
+                    // **** update the reversed queue tail ****
+                    revTail = node;
+                }
+
+                // **** set new head ****
+                if (revHead == null)
+                    revHead = p;
+                else
+                    revTail.next = p;
+
+                // **** update the reversed queue tail ****
+                revTail = p;
+            }
+        }
+
+        // **** pop all nodes from the stack ****
+        while (!stack.isEmpty()) {
+
+            // **** pop next node ****
+            Node node = stack.pop();
+
+            // **** reset next reference ****
+            node.next = null;
+
+            // **** set new head ****
+            if (revHead == null)
+                revHead = node;
+            else
+                revTail.next = node;
+
+            // **** update the reversed queue tail ****
+            revTail = node;
+        }
+
+        // **** return head of reversed linked list ****
+        return revHead;
     }
 
 }
