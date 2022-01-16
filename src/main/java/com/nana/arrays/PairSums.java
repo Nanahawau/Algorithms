@@ -1,5 +1,6 @@
 package com.nana.arrays;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class PairSums {
@@ -56,5 +57,32 @@ public class PairSums {
             }
         }
         return count/2;
+    }
+
+
+    public int[] twoSum(int[] numbers, int target)
+    {
+        Arrays.sort(numbers); // have to do this for unsorted arrays
+        int start = 0;
+        int end = numbers.length - 1;
+        int[] result = new int[] {0, 0};
+        while (start < end)
+        {
+            if (numbers[start] + numbers[end] == target)
+            {
+                result[0] = start + 1;
+                result[1] = end + 1;
+                break;
+            }
+            else if (numbers[start] + numbers[end] < target)
+            {
+                start++;
+            }
+            else
+            {
+                end--;
+            }
+        }
+        return result;
     }
 }
