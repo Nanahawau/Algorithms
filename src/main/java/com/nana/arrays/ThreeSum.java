@@ -9,7 +9,8 @@ public class ThreeSum {
     public static void main(String[] args) {
         int A[] = { 1, 4, 45, 6, 10, 8 };
         int sum = 22;
-        System.out.println(threeNumberSum(A, sum));
+//        System.out.println(threeNumberSum(A, sum));
+        System.out.println(findNumberOfOccurrence(new int[] {1, 1, 1, 2, 33}, 1));
     }
 
     /**
@@ -43,4 +44,15 @@ public class ThreeSum {
         }
         return result;
     }
+
+    static int findNumberOfOccurrence (int [] arr, int k) {
+        int start = 0;
+        int end = arr.length - 1;
+        int frequency = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+        }
+        return frequency;
+    }
+
 }

@@ -62,6 +62,8 @@ public class BalancedBrackets {
             // cannot be empty at this point.
             if (stack.isEmpty())
                 return false;
+
+
             char check;
             switch (x) {
             case ')':

@@ -18,12 +18,41 @@ public class RotateArray {
         // 0, 1, 2, 3, 4, 5, 6
         int[] array = { 3, 4, 5, 6, 7, 1, 2 };
 
-        System.out.println(Arrays.toString(rotateArray(arr, 3)));
-        System.out.println(noOfRotation(array));
-        System.out.println(countRotations(array, 0, array.length - 1));
+//        System.out.println(Arrays.toString(rotateArray(arr, 3)));
+        System.out.println(Arrays.toString(rotateArrayRight(new int[]{3, 2, 1, 6}, 3)));
+        System.out.println(Arrays.toString(leftRotate(new int[]{3, 2, 1, 6}, 3)));
+//        System.out.println(noOfRotation(array));
+//        System.out.println(countRotations(array, 0, array.length - 1));
     }
 
-    static int[] rotateArray(int[] array, int k) {
+
+    static int [] leftRotate(int arr[], int d)
+    {
+        int n = arr.length;
+        // in case the rotating factor is
+        // greater than array length
+        d = d % n;
+        reverseArray(arr, 0, d - 1);
+        reverseArray(arr, d, n - 1);
+        reverseArray(arr, 0, n - 1);
+
+        return arr;
+    }
+
+    /*Function to reverse arr[] from index start to end*/
+    static void reverseArray(int arr[], int start, int end)
+    {
+        int temp;
+        while (start < end) {
+            temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
+
+    static int[] rotateArrayRight(int[] array, int k) {
         k = k % array.length;
         System.out.println(k);
         reverse(array, 0, array.length - 1);
@@ -45,6 +74,7 @@ public class RotateArray {
 
     /**
      * Linear search approach
+     * 0(n)
      */
     static int noOfRotation(int[] array) {
         // the index with the minvalue is the number of rotation
