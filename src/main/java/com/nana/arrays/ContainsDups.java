@@ -1,6 +1,8 @@
 package com.nana.arrays;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class ContainsDups {
 
@@ -23,5 +25,12 @@ public class ContainsDups {
             return true;
         }
         return false;
+
+//        HashMap<Integer, Integer> map = new HashMap<>();
+//        for (Map.Entry<Integer, Integer> m: map.entrySet()) {
+//            int i = (int) m.getKey();
+//        }
     }
+
+
 }

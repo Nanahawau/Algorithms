@@ -33,4 +33,25 @@ public class SumIntegers {
         return a;
     }
 
+    static int countSetBits(int n)
+    {
+        int count = 0;
+        while (n > 0) {
+            count += n & 1;
+            n >>= 1;
+        }
+        return count;
+    }
+
+    static int numberOfCarry (int a , int b) {
+        int counter = 0;
+        while (b != 0) {
+            int carry = a & b;
+            a = a ^ b;
+            b = carry << 1;
+
+            counter += Integer.bitCount(b);
+        }
+        return counter;
+    }
 }

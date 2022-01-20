@@ -1,9 +1,34 @@
 package com.nana.misc;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Misc {
     
     public static void main(String[] args) {
+
         System.out.println(factorial(5));
+        String s = "hello";
+        System.out.println(s.contentEquals("e"));
+        StringBuilder sa = new StringBuilder("HelloMadam");
+        System.out.println(sa.subSequence(0, 2));
+
+        // right pad
+        String rightPad = String.format("%" + (-10) + "s", s).replace(' ', '-');
+        String leftPad = String.format("%" + 10 +"s" , s).replace(' ', 'a');
+        System.out.println(rightPad);
+        System.out.println(leftPad);
+
+        List<Integer> c = new ArrayList<>();
+        c.add(1);
+        c.add(2);
+        c.add(3);
+
+        Collections.sort(c, Collections.<Integer>reverseOrder());
+        System.out.println(c);
+
+
     }
 
 
@@ -59,17 +84,6 @@ public class Misc {
     }
 
 
-    /**
-     * Coin Change making problem
-     * Top down approach 
-     * Bottom up approach
-     */
-
-
-    //  static int coinChange(int [] arr ) {
-
-    //  }
-
 
 
 // Fn = Fn-1 + Fn - 2
@@ -84,4 +98,15 @@ public class Misc {
 
         return fibI(n - 1) + fibI(n - 2);
     }
+
+    /**
+     * Total occurences of K in a sorted array
+     * [1, 1, 1, 3, 5, 6]
+     * @param arr
+     * @return
+     */
+//    static int topOccurencesOfK (int [] arr) {
+//        // binary search
+//
+//    }
 }
