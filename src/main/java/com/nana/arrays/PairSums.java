@@ -30,7 +30,14 @@ public class PairSums {
         return countPairSums;
     }
 
-
+    /**
+     * Will the numbers be unique?
+     * Will there be repeated numbers?
+     * Pair sum count
+     * @param arr
+     * @param k
+     * @return
+     */
     static int pairSumOP (int [] arr, int k) {
         HashMap<Integer, Integer> frequencyMap = new HashMap<Integer, Integer>();
 

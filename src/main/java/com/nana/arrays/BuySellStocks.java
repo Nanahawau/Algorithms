@@ -22,7 +22,7 @@ public class BuySellStocks {
         int left = 0;
 
         for (int i = 0; i < prices.length - 1; i++) {
-            int right = i + 1;
+            int right = left + 1;
 
             int profit = prices [right] - prices[left];
 
